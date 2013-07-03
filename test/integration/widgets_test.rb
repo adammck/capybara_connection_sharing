@@ -12,4 +12,10 @@ class WidgetsTest < ActionDispatch::IntegrationTest
       assert page.has_content?(widget.name), "page should have widget: #{widget.name}"
     end
   end
+
+  test 'renames the first widget to "froob"' do
+    visit '/widgets/froobicate'
+    assert page.has_content?('OK')
+    assert_equal 'froob', Widget.first.name
+  end
 end

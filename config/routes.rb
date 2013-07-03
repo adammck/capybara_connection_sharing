@@ -1,5 +1,9 @@
 CapybaraConnectionSharing::Application.routes.draw do
-  resources :widgets
+  resources :widgets do
+    collection do
+      get :froobicate
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
