@@ -1,6 +1,28 @@
-<h1>Widgets</h1>
 <ul>
   <% @widgets.each do |widget| %>
     <li><%= widget.name %></li>
   <% end %>
 </ul>
+
+<button id="froob">
+  Start Froobication
+</button>
+
+<div id="output">
+</div>
+
+<script>
+  document.getElementById('froob').addEventListener('click', function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/widgets/froobicate', true);
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        var txt = xhr.responseText;
+        document.getElementById('output').innerHTML = txt;
+      }
+    }
+
+    xhr.send();
+  });
+</script>

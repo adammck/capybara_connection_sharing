@@ -47,4 +47,5 @@ end
 group :test do
   gem 'capybara'
   gem 'poltergeist'
+  gem 'connection_pool'
 end

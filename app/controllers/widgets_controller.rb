@@ -4,9 +4,7 @@ class WidgetsController < ApplicationController
   end
 
   def froobicate
-    @widget = Widget.limit(1).first
-    Widget.connection.execute(%Q<SELECT SLEEP(3)>) # something really expensive
-    Widget.connection.execute(%Q<UPDATE widgets SET name="froob" where id=#{@widget.id}>)
+    Widget.where("id = SLEEP(0.3)").to_a
     render text: "OK"
   end
 end
