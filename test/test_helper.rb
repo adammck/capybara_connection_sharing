@@ -13,7 +13,8 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  # Roll back the database after each test
+  self.use_transactional_fixtures = true
 end
 
 class ActionDispatch::IntegrationTest
