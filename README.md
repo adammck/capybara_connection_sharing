@@ -5,6 +5,10 @@ connection-sharing advice is insufficient.
 
 See: https://github.com/jnicklas/capybara/pull/1047
 
-    bundle exec rake test:all PATCH=none
-    bundle exec rake test:all PATCH=capybara
-    bundle exec rake test:all PATCH=mperham
+    git clone https://github.com/adammck/capybara_connection_sharing.git
+    cd capybara_connection_sharing
+    bundle
+
+    bin/rake test:all PATCH=none     # FAIL
+    bin/rake test:all PATCH=capybara # FAIL
+    bin/rake test:all PATCH=mperham  # PASS
